@@ -75,8 +75,8 @@ fun MyPage(
                 GalleryScreen(navController)
             }
 
-            composable(Screen.Course.route) {
-                CourseScreen()
+            composable(Screen.About.route) {
+                AboutScreen()
             }
 
             composable(
@@ -119,7 +119,7 @@ private fun ScreenTitle(navController: NavHostController) {
     val title = when (currentRoute) {
         Screen.Home.route -> stringResource(id = R.string.menu_home)
         Screen.Gallery.route -> stringResource(id = R.string.menu_gallery)
-        Screen.Course.route -> stringResource(id = R.string.menu_course)
+        Screen.About.route -> stringResource(id = R.string.menu_about)
         else -> stringResource(id = R.string.app_name) // Default title if route not found
     }
 
@@ -149,9 +149,9 @@ private fun BottomBar(
                 screen = Screen.Gallery
             ),
             NavigationItem(
-                title = stringResource(id = R.string.menu_course),
+                title = stringResource(id = R.string.menu_about),
                 icon = Icons.Default.Face,
-                screen = Screen.Course
+                screen = Screen.About
             )
         )
         navigationItems.map { item ->

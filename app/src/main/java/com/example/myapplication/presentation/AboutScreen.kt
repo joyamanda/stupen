@@ -26,7 +26,7 @@ import com.example.myapplication.model.About
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
 @Composable
-fun CourseScreen(
+fun AboutScreen(
     modifier: Modifier = Modifier,
     about: List<About> = DummyData.aboutMe
 ) {
@@ -80,7 +80,7 @@ fun CourseScreen(
 @Composable
 private fun CourseScreenPreview() {
     MyApplicationTheme {
-        CourseScreen(about = DummyData.aboutMe)
+        AboutScreen(about = DummyData.aboutMe)
     }
 }
 
