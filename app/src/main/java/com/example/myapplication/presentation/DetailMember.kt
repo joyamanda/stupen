@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,35 +25,31 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.myapplication.data.DummyData
 import com.example.myapplication.model.Member
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 
 @Composable
-fun DetailMentorScreen(
+fun DetailMember(
     modifier: Modifier = Modifier,
     navController: NavController,
-    mentorsId: Int?
+    membersId: Int?
 ) {
-    val newMentorsList = DummyData.mobileMembers.filter { mentor ->
-        mentor.id == mentorsId
+    val newMembersList = DummyData.mobileMembers.filter { member ->
+        member.id == membersId
     }
 
     Column(
-        modifier = modifier.fillMaxSize(), // Fill the entire available space
-        horizontalAlignment = Alignment.CenterHorizontally, // Center horizontally
-        verticalArrangement = Arrangement.Center // Center vertically
+        modifier = modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        DetailMentorContent(newMentorsList = newMentorsList)
+        DetailMemberContent(newMembersList = newMembersList)
     }
 
 
 }
 
 @Composable
-private fun DetailMentorContent(
-    newMentorsList: List<Member>,
+private fun DetailMemberContent(
+    newMembersList: List<Member>,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -66,8 +61,8 @@ private fun DetailMentorContent(
         Spacer(modifier = Modifier)
         Column(modifier = Modifier.padding(4.dp)) {
             Image(
-                painter = painterResource(id = newMentorsList[0].photo),
-                contentDescription = newMentorsList[0].nickname,
+                painter = painterResource(id = newMembersList[0].photo),
+                contentDescription = newMembersList[0].nickname,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .clip(CircleShape)
@@ -75,18 +70,18 @@ private fun DetailMentorContent(
             )
             Spacer(modifier = Modifier.height(20.dp))
             Text(
-                text = newMentorsList[0].name,
+                text = newMembersList[0].name,
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold
             )
             Spacer(modifier = Modifier.height(3.dp))
             Text(
-                text = newMentorsList[0].nickname,
+                text = newMembersList[0].nickname,
                 style = MaterialTheme.typography.titleMedium,
             )
             Spacer(modifier = Modifier.height(3.dp))
             Text(
-                text = "Unit : ${newMentorsList[0].unit}",
+                text = "Unit : ${newMembersList[0].unit}",
                 style = MaterialTheme.typography.titleSmall,
             )
         }
@@ -96,5 +91,5 @@ private fun DetailMentorContent(
 @Preview(showBackground = true)
 @Composable
 private fun DetailMentorContentPreview() {
-    DetailMentorContent(newMentorsList = DummyData.mobileMembers)
+    DetailMemberContent(newMembersList = DummyData.mobileMembers)
 }

@@ -80,12 +80,12 @@ fun MyPage(
             }
 
             composable(
-                Screen.Detail.route + "/{mentorId}",
-                arguments = listOf(navArgument("mentorId") { type = NavType.IntType })
+                Screen.Detail.route + "/{memberId}",
+                arguments = listOf(navArgument("memberId") { type = NavType.IntType })
             ) { navBackStackEntry ->
-                DetailMentorScreen(
+                DetailMember(
                     navController = navController,
-                    mentorsId = navBackStackEntry.arguments?.getInt("mentorId")
+                    membersId = navBackStackEntry.arguments?.getInt("memberId")
                 )
             }
 
